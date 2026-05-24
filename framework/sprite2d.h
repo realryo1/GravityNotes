@@ -37,7 +37,7 @@ void Sprite_Split_Draw(XMFLOAT2 pos, XMFLOAT2 size, float rot, XMFLOAT4 color, B
 //void Sprite_Draw(XMFLOAT2 pos, XMFLOAT2 size, float rot, XMFLOAT4 color, BLENDSTATE bstate, ID3D11ShaderResourceView* texture, SHADERTYPE shadertype = S_UNLIT, int divideX = 0, int divideY = 0, int textureNumber = 0);
 
 // Sprite クラス 2D 用 Transform2D に組む
-class Sprite : public Transform2D
+class Sprite2D : public Transform2D
 {
 protected:
 	XMFLOAT4 m_Color;    // スプライトの色
@@ -47,7 +47,7 @@ protected:
 public:
 	// pos: 中心位置, size: 幅と高さ, rotation: 角度(度)
 	// texturePath: テクスチャファイルパス(LoadTexture関数で読み込み)
-	Sprite(const XMFLOAT2& pos, const XMFLOAT2& size, float rotation, const XMFLOAT4& color, BLENDSTATE bstate, const wchar_t* texturePath)
+	Sprite2D(const XMFLOAT2& pos, const XMFLOAT2& size, float rotation, const XMFLOAT4& color, BLENDSTATE bstate, const wchar_t* texturePath)
 		: Transform2D(pos, rotation, size), m_Color(color), m_BlendState(bstate), m_Texture(nullptr), m_FlipType(FLIPTYPE2D::FLIPTYPE2D_NONE)
 	{
 		if (texturePath) {
@@ -55,7 +55,7 @@ public:
 		}
 	}
 
-	~Sprite()
+	~Sprite2D()
 	{
 		if (m_Texture) {
 			m_Texture->Release();

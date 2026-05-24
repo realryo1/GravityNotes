@@ -1,11 +1,10 @@
 ﻿#include "title.h"
-#include "sprite.h"
+#include "sprite2d.h"
 #include "texture.h"
 #include "keyboard.h"
 #include "fade.h"
 #include "debug_ostream.h"
 #include "define.h"
-
 #include "renderer.h"
 #include "font.h"
 #include "mouse.h"
@@ -18,7 +17,7 @@
 using namespace DirectX;
 
 // ①Spriteのインスタンス、ポインタ用意
-static Sprite* g_pTitleSprite = nullptr;
+static Sprite2D* g_pTitleSprite = nullptr;
 static FontRenderer* g_pTitletext = nullptr;
 static ClickFont* g_pStartClickFont = nullptr;
 static ClickFont* g_pModelViewerClickFont = nullptr;
@@ -27,7 +26,7 @@ static ClickFont* g_pLightingViewerClickFont = nullptr;
 void Title_Initialize(void)
 {
 	// ②各種初期化
-	g_pTitleSprite = new Sprite(
+	g_pTitleSprite = new Sprite2D(
 		{ SCREEN_WIDTH / 2 - 200.0f, SCREEN_HEIGHT / 2.0f - 100.0f },	//位置
 		{ 500.0f, 500.0f },												//サイズ
 		0.0f,															//回転（度）

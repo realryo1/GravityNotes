@@ -1,5 +1,5 @@
 ﻿#include "debugcamera.h"
-#include "sprite.h"
+#include "sprite2d.h"
 #include "texture.h"
 #include "keyboard.h"
 #include "fade.h"

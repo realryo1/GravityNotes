@@ -2,7 +2,7 @@
 
 #include <d3d11.h>
 #include <string>
-#include "sprite.h"
+#include "sprite2d.h"
 #include "sound.h"
 
 struct IMFDXGIDeviceManager;

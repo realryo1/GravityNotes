@@ -2,7 +2,7 @@
 // fade.cpp フェード制御
 // =========================================================
 #include "fade.h"
-#include "sprite.h"
+#include "sprite2d.h"
 #include "scene.h"
 #include "texture.h"
 
@@ -21,7 +21,7 @@ static Fade* g_pFade = nullptr;
 
 // コンストラクタ
 Fade::Fade()
-	: Sprite(
+	: Sprite2D(
 		XMFLOAT2(SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f),	// 位置
 		XMFLOAT2(SCREEN_WIDTH, SCREEN_HEIGHT),					// サイズ
 		0.0f,													// 回転

@@ -11,7 +11,7 @@
 #include "keyboard.h"
 #include "scene.h"
 #include "camera.h"
-#include "sprite.h"
+#include "sprite2d.h"
 #include "fade.h"
 #include "sound.h"
 #include "mouse.h"

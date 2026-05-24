@@ -4,7 +4,7 @@
 #ifndef _FADE_H_
 #define _FADE_H_
 
-#include "sprite.h"
+#include "sprite2d.h"
 #include "scene.h"
 
 // =========================================================
@@ -22,7 +22,7 @@ enum FADESTAT
 // =========================================================
 // Spriteを継承したFadeクラス
 // =========================================================
-class Fade : public Sprite
+class Fade : public Sprite2D
 {
 private:
 	FADESTAT m_State;

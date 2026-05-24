@@ -2,11 +2,11 @@
 #pragma once
 
 #include <DirectXMath.h>
-#include "sprite.h"
+#include "sprite2d.h"
 
 // 暗幕の「穴あき描画」用Sprite
 // 半径・中心などをまとめて管理する
-class HoleSprite : public Sprite
+class HoleSprite : public Sprite2D
 {
 private:
 	float m_RadiusPx;
@@ -21,7 +21,7 @@ public:
 		const DirectX::XMFLOAT4& color,
 		BLENDSTATE bstate,
 		const wchar_t* texturePath)
-		: Sprite(pos, size, rotation, color, bstate, texturePath)
+		: Sprite2D(pos, size, rotation, color, bstate, texturePath)
 		, m_RadiusPx(100.0f)
 		, m_CenterPx(pos)
 		, m_SoftnessPx(0.0f)
@@ -45,11 +45,11 @@ public:
 	{
 		if (m_EnableHole && m_RadiusPx > 0.0f)
 		{
-			Sprite::DrawHole(m_CenterPx, m_RadiusPx, m_SoftnessPx);
+			Sprite2D::DrawHole(m_CenterPx, m_RadiusPx, m_SoftnessPx);
 		}
 		else
 		{
-			Sprite::Draw();
+			Sprite2D::Draw();
 		}
 	}
 };

@@ -1,6 +1,6 @@
 ﻿#include "debug_lighting_scene.h"
 #include "light.h"
-#include "sprite.h"
+#include "sprite2d.h"
 #include "texture.h"
 #include "keyboard.h"
 #include "fade.h"
@@ -23,6 +23,8 @@ using namespace DirectX;
 static Sprite3D* g_pKirbyModel = nullptr;
 static PointLight* g_pMainLight = nullptr;
 static AmbientLight g_ambientLight(XMFLOAT4(0.08f, 0.08f, 0.08f, 1.0f));
+Movie* g_pMovie;
+
 
 void DebugLightingScene_Initialize(void)
 {
@@ -52,6 +54,16 @@ void DebugLightingScene_Initialize(void)
 		SetCameraPosition(GetCamera()->GetPos());
 	}
 
+	g_pMovie = new Movie(
+		{ SCREEN_WIDTH / 2,SCREEN_HEIGHT / 2 },
+		1000.0f,
+		0.0f,
+		{ 1.0f,1.0f,1.0f, 1.0f },
+		BLENDSTATE_NONE,
+		L"asset\\movie\\nullmovie.mp4"
+	);
+
+
 	LockMouse();
 }
 
@@ -66,6 +78,9 @@ void DebugLightingScene_Update(void)
 	}
 
 	g_pMainLight->Apply(g_ambientLight);
+
+	g_pMovie->Update();
+
 }
 
 void DebugLightingScene_Draw(void)
@@ -75,6 +90,8 @@ void DebugLightingScene_Draw(void)
 	g_pKirbyModel->Draw();
 
 	SetDepthEnable(false);
+	g_pMovie->Draw();
+
 }
 
 void DebugLightingScene_Finalize(void)
@@ -84,6 +101,9 @@ void DebugLightingScene_Finalize(void)
 
 	delete g_pMainLight;
 	g_pMainLight = nullptr;
+
+	delete g_pMovie;
+	g_pMovie = nullptr;
 
 	DebugCamera_Finalize();
 }

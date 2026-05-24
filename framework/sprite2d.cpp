@@ -1,5 +1,5 @@
 ﻿//sprite.cpp
-#include "sprite.h"
+#include "sprite2d.h"
 #include "texture.h"
 #include "define.h"
 #include "model.h"

@@ -20,7 +20,7 @@
 #include "camera.h"
 #include "model.h"
 #include "sprite3d.h"
-#include "sprite.h"
+#include "sprite2d.h"
 #include "billboard.h"
 #include "font.h"
 #include "keyboard.h"

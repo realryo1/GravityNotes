@@ -1,6 +1,6 @@
 ﻿#include "debugscore.h"
 #include "light.h"
-#include "sprite.h"
+#include "sprite2d.h"
 #include "texture.h"
 #include "keyboard.h"
 #include "fade.h"
@@ -20,23 +20,13 @@
 
 using namespace DirectX;
 
-Movie* g_pMovie;
 
 void Debugscore_Initialize(void)
 {
-	g_pMovie = new Movie(
-		{ SCREEN_WIDTH / 2,SCREEN_HEIGHT / 2 },
-		1000.0f,
-		0.0f,
-		{ 1.0f,1.0f,1.0f, 1.0f },
-		BLENDSTATE_NONE,
-		L"asset\\movie\\nullmovie.mp4"
-	);
 }
 
 void Debugscore_Update(void)
 {
-	g_pMovie->Update();
 }
 
 void Debugscore_Draw(void)
@@ -47,11 +37,8 @@ void Debugscore_Draw(void)
 	SetDepthEnable(false);
 
 
-	g_pMovie->Draw();
 }
 
 void Debugscore_Finalize(void)
 {
-	delete g_pMovie;
-	g_pMovie = nullptr;
 }

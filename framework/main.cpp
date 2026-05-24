@@ -19,7 +19,7 @@
 #include "keyboard.h"
 #include "mouse.h"
 #include "font.h"
-#include "sprite.h"
+#include "sprite2d.h"
 #include "fade.h"
 #include "sound.h"
 #include "shadermanager.h"

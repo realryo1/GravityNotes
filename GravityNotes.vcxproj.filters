@@ -37,7 +37,7 @@
     <ClCompile Include="framework\sound.cpp">
       <Filter>フレームワーク\etc</Filter>
     </ClCompile>
-    <ClCompile Include="framework\sprite.cpp">
+    <ClCompile Include="framework\sprite2d.cpp">
       <Filter>フレームワーク\2D</Filter>
     </ClCompile>
     <ClCompile Include="framework\texture.cpp">
@@ -115,7 +115,7 @@
     <ClInclude Include="framework\sound.h">
       <Filter>フレームワーク\etc</Filter>
     </ClInclude>
-    <ClInclude Include="framework\sprite.h">
+    <ClInclude Include="framework\sprite2d.h">
       <Filter>フレームワーク\2D</Filter>
     </ClInclude>
     <ClInclude Include="framework\sprite3d.h">

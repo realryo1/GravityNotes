@@ -1,5 +1,5 @@
 ﻿#include "result.h"
-#include "sprite.h"
+#include "sprite2d.h"
 #include "texture.h"
 #include "keyboard.h"
 #include "fade.h"
@@ -18,12 +18,12 @@
 using namespace DirectX;
 
 // ①Spriteのインスタンス、ポインタ用意
-static Sprite* g_pResultSprite = nullptr;
+static Sprite2D* g_pResultSprite = nullptr;
 
 void Result_Initialize(void)
 {
 	// ②各種初期化
-	g_pResultSprite = new Sprite(
+	g_pResultSprite = new Sprite2D(
 		{ SCREEN_WIDTH / 2 - 200.0f, SCREEN_HEIGHT / 2.0f - 100.0f },	//位置
 		{ SCREEN_WIDTH * 0.7f, SCREEN_HEIGHT * 0.7f },					//サイズ
 		0.0f,															//回転（度）
