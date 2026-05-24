@@ -156,6 +156,7 @@
     <ClCompile Include="debugscene\debugcamera.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="debugscene\debugscore.cpp" />
     <ClCompile Include="debugscene\debug_lighting_scene.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -188,6 +189,7 @@
     <ClInclude Include="debugscene\debugcamera.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="debugscene\debugscore.h" />
     <ClInclude Include="debugscene\debug_lighting_scene.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>

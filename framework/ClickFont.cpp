@@ -7,16 +7,51 @@
 #include "renderer.h"
 #include "shadermanager.h"
 #include "define.h"
+#include <algorithm>
+
+namespace
+{
+	int CountUtf8CodePoints(const std::string& text)
+	{
+		int count = 0;
+		for (size_t i = 0; i < text.size();)
+		{
+			const unsigned char c = static_cast<unsigned char>(text[i]);
+			if ((c & 0x80) == 0)
+			{
+				i += 1;
+			}
+			else if ((c & 0xE0) == 0xC0)
+			{
+				i += 2;
+			}
+			else if ((c & 0xF0) == 0xE0)
+			{
+				i += 3;
+			}
+			else if ((c & 0xF8) == 0xF0)
+			{
+				i += 4;
+			}
+			else
+			{
+				i += 1;
+			}
+			count++;
+		}
+		return count;
+	}
+}
 
 ClickFont::ClickFont(XMFLOAT2 pos, float fontSize, float rotation,
 	XMFLOAT4 normalColor, XMFLOAT4 hoverColor, const std::string& text)
 	: FontRenderer(pos, fontSize, rotation, normalColor, text)
 	, m_NormalColor(normalColor)
 	, m_HoverColor(hoverColor)
-	, m_HitSize({ 200.0f, fontSize })
+	, m_HitSize({ (std::max)(fontSize * 2.0f, fontSize * 0.7f * CountUtf8CodePoints(text)), fontSize * 1.5f })
 	, m_IsHover(false)
 	, m_WasLeftDown(false)
-	, m_OnClick(nullptr)
+	, m_IsClick(false)
 {
 }
 
@@ -72,10 +107,5 @@ void ClickFont::Update()
 	const bool leftDown = ms.leftButton;
 	const bool pressedThisFrame = (leftDown && !m_WasLeftDown);
 	m_WasLeftDown = leftDown;
-
-	if (pressedThisFrame && m_IsHover) {
-		if (m_OnClick) {
-			m_OnClick();
-		}
-	}
+	m_IsClick = (pressedThisFrame && m_IsHover);
 }

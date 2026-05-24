@@ -44,7 +44,6 @@
       <Filter>フレームワーク\2D</Filter>
     </ClCompile>
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="mouse.cpp" />
     <ClCompile Include="result.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="title.cpp" />
@@ -61,6 +60,12 @@
       <Filter>デバッグ</Filter>
     </ClCompile>
     <ClCompile Include="framework\debug_ostream.cpp">
+      <Filter>フレームワーク\etc</Filter>
+    </ClCompile>
+    <ClCompile Include="debugscene\debugscore.cpp">
+      <Filter>デバッグ</Filter>
+    </ClCompile>
+    <ClCompile Include="mouse.cpp">
       <Filter>フレームワーク\etc</Filter>
     </ClCompile>
   </ItemGroup>
@@ -126,7 +131,6 @@
       <Filter>フレームワーク\etc</Filter>
     </ClInclude>
     <ClInclude Include="game.h" />
-    <ClInclude Include="mouse.h" />
     <ClInclude Include="result.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="title.h" />
@@ -150,6 +154,12 @@
     </ClInclude>
     <ClInclude Include="scoreloader.h">
       <Filter>譜面読み込み</Filter>
+    </ClInclude>
+    <ClInclude Include="debugscene\debugscore.h">
+      <Filter>デバッグ</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse.h">
+      <Filter>フレームワーク\etc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

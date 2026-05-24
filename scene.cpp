@@ -7,6 +7,7 @@
 #include "result.h"
 #include "debug_model_scene.h"
 #include "debug_lighting_scene.h"
+#include "debugscene/debugscore.h"
 #include "define.h"
 using namespace DirectX;
 
@@ -55,6 +56,9 @@ void Update(void)
 	case SCENE_DEBUG_LIGHTING:
 		DebugLightingScene_Update();
 		break;
+	case SCENE_DEBUG_SCORE:
+		Debugscore_Update();
+		break;
 	default:
 		break;
 	}
@@ -79,6 +83,9 @@ void Draw(void)
 	case SCENE_DEBUG_LIGHTING:
 		DebugLightingScene_Draw();
 		break;
+	case SCENE_DEBUG_SCORE:
+		Debugscore_Draw();
+		break;
 	default:
 		break;
 	}
@@ -102,6 +109,9 @@ void Finalize(void)
 		break;
 	case SCENE_DEBUG_LIGHTING:
 		DebugLightingScene_Finalize();
+		break;
+	case SCENE_DEBUG_SCORE:
+		Debugscore_Finalize();
 		break;
 	default:
 		break;

@@ -20,6 +20,7 @@ using namespace DirectX;
 // ①Spriteのインスタンス、ポインタ用意
 static Sprite* g_pTitleSprite = nullptr;
 static FontRenderer* g_pTitletext = nullptr;
+static ClickFont* g_pStartClickFont = nullptr;
 static ClickFont* g_pModelViewerClickFont = nullptr;
 static ClickFont* g_pLightingViewerClickFont = nullptr;
 
@@ -43,6 +44,15 @@ void Title_Initialize(void)
 		"title.cpp"														//テキスト
 	);
 
+	g_pStartClickFont = new ClickFont(
+		{ SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f + 40.0f },
+		28.0f,
+		0.0f,
+		{ 1.0f, 1.0f, 1.0f, 1.0f },
+		{ 1.0f, 0.8f, 0.2f, 1.0f },
+		"Click to Start"
+	);
+
 	// モデルビューワシーンへのClickFont（左上）
 	g_pModelViewerClickFont = new ClickFont(
 		{ 0.0f,0.0f },
@@ -52,10 +62,6 @@ void Title_Initialize(void)
 		{ 0.3f, 0.9f, 1.0f, 1.0f },
 		"[Debug] ModelViewer"
 	);
-	g_pModelViewerClickFont->SetHitSize({ 260.0f, 30.0f });
-	g_pModelViewerClickFont->SetOnClick([]() {
-		StartFade(SCENE_DEBUG_MODEL);
-		});
 
 	// ライティング確認シーンへのClickFont
 	g_pLightingViewerClickFont = new ClickFont(
@@ -66,10 +72,6 @@ void Title_Initialize(void)
 		{ 1.0f, 0.8f, 0.2f, 1.0f },
 		"[Debug] Lighting"
 	);
-	g_pLightingViewerClickFont->SetHitSize({ 260.0f, 30.0f });
-	g_pLightingViewerClickFont->SetOnClick([]() {
-		StartFade(SCENE_DEBUG_LIGHTING);
-		});
 
 	UnLockMouse();//マウスロック
 	UnLockMouse();//マウスロック
@@ -79,28 +81,48 @@ void Title_Update(void)
 {
 
 	// ③適当な処理　アニメーションなどもここで
+	if (g_pStartClickFont)
+	{
+		g_pStartClickFont->Update();
+		if (g_pStartClickFont->IsClick())
+		{
+			StartFade(SCENE_DEBUG_SCORE);
+		}
+	}
 	if (g_pModelViewerClickFont)
 	{
 		g_pModelViewerClickFont->Update();
+		if (g_pModelViewerClickFont->IsClick())
+		{
+			StartFade(SCENE_DEBUG_MODEL);
+		}
 	}
 	if (g_pLightingViewerClickFont)
 	{
 		g_pLightingViewerClickFont->Update();
+		if (g_pLightingViewerClickFont->IsClick())
+		{
+			StartFade(SCENE_DEBUG_LIGHTING);
+		}
 	}
 }
 
 void Title_Draw(void)
 {
 	g_pTitleSprite->Draw();
+	g_pTitletext->Draw();
+	g_pStartClickFont->Draw();
 	g_pModelViewerClickFont->Draw();
 	g_pLightingViewerClickFont->Draw();
-	g_pTitletext->Draw();
 }
 
 void Title_Finalize(void)
 {
 	delete g_pTitleSprite;
 	g_pTitleSprite = nullptr;
+
+	delete g_pStartClickFont;
+	g_pStartClickFont = nullptr;
 
 	delete g_pModelViewerClickFont;
 	g_pModelViewerClickFont = nullptr;
