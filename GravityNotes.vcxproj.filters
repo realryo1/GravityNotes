@@ -48,20 +48,20 @@
     <ClCompile Include="result.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="title.cpp" />
-    <ClCompile Include="debug\debug_lighting_scene.cpp">
-      <Filter>デバッグ用</Filter>
-    </ClCompile>
-    <ClCompile Include="debug\debug_model_scene.cpp">
-      <Filter>デバッグ用</Filter>
-    </ClCompile>
-    <ClCompile Include="debugcamera.cpp">
-      <Filter>デバッグ用</Filter>
-    </ClCompile>
     <ClCompile Include="shader\renderer.cpp">
       <Filter>フレームワーク\シェーダー</Filter>
     </ClCompile>
+    <ClCompile Include="debugscene\debug_lighting_scene.cpp">
+      <Filter>デバッグ</Filter>
+    </ClCompile>
+    <ClCompile Include="debugscene\debug_model_scene.cpp">
+      <Filter>デバッグ</Filter>
+    </ClCompile>
+    <ClCompile Include="debugscene\debugcamera.cpp">
+      <Filter>デバッグ</Filter>
+    </ClCompile>
     <ClCompile Include="framework\debug_ostream.cpp">
-      <Filter>デバッグ用</Filter>
+      <Filter>フレームワーク\etc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,23 +130,23 @@
     <ClInclude Include="result.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="title.h" />
-    <ClInclude Include="debug\debug_model_scene.h">
-      <Filter>デバッグ用</Filter>
-    </ClInclude>
-    <ClInclude Include="debug\debug_lighting_scene.h">
-      <Filter>デバッグ用</Filter>
-    </ClInclude>
-    <ClInclude Include="debugcamera.h">
-      <Filter>デバッグ用</Filter>
-    </ClInclude>
     <ClInclude Include="shader\renderer.h">
       <Filter>フレームワーク\シェーダー</Filter>
     </ClInclude>
-    <ClInclude Include="framework\debug_ostream.h">
-      <Filter>デバッグ用</Filter>
-    </ClInclude>
     <ClInclude Include="shader\shadermanager.h">
       <Filter>フレームワーク\シェーダー</Filter>
+    </ClInclude>
+    <ClInclude Include="debugscene\debug_lighting_scene.h">
+      <Filter>デバッグ</Filter>
+    </ClInclude>
+    <ClInclude Include="debugscene\debug_model_scene.h">
+      <Filter>デバッグ</Filter>
+    </ClInclude>
+    <ClInclude Include="debugscene\debugcamera.h">
+      <Filter>デバッグ</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\debug_ostream.h">
+      <Filter>フレームワーク\etc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -168,11 +168,11 @@
     <Filter Include="マークダウン">
       <UniqueIdentifier>{2314d523-0fe6-483a-99df-52aebb2863eb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="デバッグ用">
-      <UniqueIdentifier>{7e4fabbe-3c88-465b-b068-446e0f159815}</UniqueIdentifier>
-    </Filter>
     <Filter Include="フレームワーク\シェーダー">
       <UniqueIdentifier>{41661671-cd8b-4d62-8f5f-b4d337dc2e31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="デバッグ">
+      <UniqueIdentifier>{7e4fabbe-3c88-465b-b068-446e0f159815}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

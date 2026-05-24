@@ -153,8 +153,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="debug\debug_lighting_scene.cpp" />
-    <ClCompile Include="debug\debug_model_scene.cpp" />
+    <ClCompile Include="debugscene\debugcamera.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debugscene\debug_lighting_scene.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debugscene\debug_model_scene.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="framework\anim_sprite3d.cpp" />
     <ClCompile Include="framework\billboard.cpp" />
     <ClCompile Include="framework\camera.cpp" />
@@ -172,15 +179,21 @@
     <ClCompile Include="framework\texture.cpp" />
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="debugcamera.cpp" />
     <ClCompile Include="result.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="shader\renderer.cpp" />
     <ClCompile Include="title.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="debug\debug_lighting_scene.h" />
-    <ClInclude Include="debug\debug_model_scene.h" />
+    <ClInclude Include="debugscene\debugcamera.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="debugscene\debug_lighting_scene.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="debugscene\debug_model_scene.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="define.h" />
     <ClInclude Include="framework\anim_sprite3d.h" />
     <ClInclude Include="framework\billboard.h" />
@@ -204,7 +217,6 @@
     <ClInclude Include="framework\texture.h" />
     <ClInclude Include="mouse.h" />
     <ClInclude Include="game.h" />
-    <ClInclude Include="debugcamera.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="result.h" />
     <ClInclude Include="shader\shadermanager.h" />

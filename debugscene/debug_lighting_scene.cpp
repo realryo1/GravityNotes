@@ -1,0 +1,89 @@
+﻿#include "debug_lighting_scene.h"
+#include "light.h"
+#include "sprite.h"
+#include "texture.h"
+#include "keyboard.h"
+#include "fade.h"
+#include "debug_ostream.h"
+#include "define.h"
+#include "renderer.h"
+#include "font.h"
+#include "mouse.h"
+#include "sound.h"
+#include "sprite3d.h"
+#include "ClickFont.h"
+#include "camera.h"
+#include "movie.h"
+#include "debugcamera.h"
+#include <string>
+#include <cmath>
+
+using namespace DirectX;
+
+static Sprite3D* g_pKirbyModel = nullptr;
+static PointLight* g_pMainLight = nullptr;
+static AmbientLight g_ambientLight(XMFLOAT4(0.08f, 0.08f, 0.08f, 1.0f));
+
+void DebugLightingScene_Initialize(void)
+{
+	g_pKirbyModel = new Sprite3D(
+		{ 0.0f, 0.0f, 5.0f },	//位置
+		{ 1.0f, 1.0f, 1.0f },	//スケール
+		{ 0.0f, 0.0f, 0.0f },	//回転（度）
+		"asset\\model\\cube.fbx", //モデルパス
+		S_LAMBERT
+	);
+
+	g_pMainLight = new PointLight(
+		TRUE,
+		XMFLOAT4(0.0f, 5.0f, -5.0f, 1.0f),
+		XMFLOAT4(0.0f, -1.0f, 0.5f, 0.0f),
+		XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f),
+		20.0f,
+		1.0f
+	);
+
+	g_pMainLight->Apply(g_ambientLight);
+	
+	DebugCamera_Initialize();
+	if (GetCamera())
+	{
+		GetCamera()->SetTargetPos(g_pKirbyModel->GetPos());
+		SetCameraPosition(GetCamera()->GetPos());
+	}
+
+	LockMouse();
+}
+
+void DebugLightingScene_Update(void)
+{
+	DebugCamera_Update();
+
+	if (GetCamera())
+	{
+		GetCamera()->SetTargetPos(g_pKirbyModel->GetPos());
+		SetCameraPosition(GetCamera()->GetPos());
+	}
+
+	g_pMainLight->Apply(g_ambientLight);
+}
+
+void DebugLightingScene_Draw(void)
+{
+	SetDepthEnable(true);
+
+	g_pKirbyModel->Draw();
+
+	SetDepthEnable(false);
+}
+
+void DebugLightingScene_Finalize(void)
+{
+	delete g_pKirbyModel;
+	g_pKirbyModel = nullptr;
+
+	delete g_pMainLight;
+	g_pMainLight = nullptr;
+
+	DebugCamera_Finalize();
+}
