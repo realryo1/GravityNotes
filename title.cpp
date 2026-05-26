@@ -27,7 +27,7 @@ void Title_Initialize(void)
 {
 	// ②各種初期化
 	g_pTitleSprite = new Sprite2D(
-		{ SCREEN_WIDTH / 2 - 200.0f, SCREEN_HEIGHT / 2.0f - 100.0f },	//位置
+		{ SCREEN_WIDTH / 2 , SCREEN_HEIGHT / 2.0f - 100.0f },			//位置
 		{ 500.0f, 500.0f },												//サイズ
 		0.0f,															//回転（度）
 		{ 1.0f, 1.0f, 1.0f, 1.0f },										//RGBA
@@ -36,7 +36,7 @@ void Title_Initialize(void)
 	);
 
 	g_pTitletext = new FontRenderer(
-		{ SCREEN_WIDTH / 2 - 200.0f, SCREEN_HEIGHT / 2.0f - 100.0f },	//位置
+		{ SCREEN_WIDTH / 5 * 1, SCREEN_HEIGHT / 4 * 3 },				//位置
 		30.0f,															//文字サイズ
 		0.0f,															//回転（度）
 		{ 1.0f, 1.0f, 1.0f, 1.0f },										//RGBA
@@ -44,32 +44,32 @@ void Title_Initialize(void)
 	);
 
 	g_pStartClickFont = new ClickFont(
-		{ SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f + 40.0f },
-		28.0f,
-		0.0f,
-		{ 1.0f, 1.0f, 1.0f, 1.0f },
-		{ 1.0f, 0.8f, 0.2f, 1.0f },
-		"Click to Start"
-	);
+		{ SCREEN_WIDTH / 5 * 2, SCREEN_HEIGHT / 4 * 3 },				//位置
+		30.0f,															//文字サイズ
+		0.0f,															//回転（度）
+		{ 0.7f, 0.7f, 0.7f, 1.0f },										//通常色
+		{ 1.0f, 0.8f, 0.2f, 1.0f },										//ホバー色
+		"[Debug] ScorePlayer"											//テキスト
+		);
 
 	// モデルビューワシーンへのClickFont（左上）
 	g_pModelViewerClickFont = new ClickFont(
-		{ 0.0f,0.0f },
-		22.0f,
-		0.0f,
-		{ 0.5f, 0.5f, 0.5f, 1.0f },
-		{ 0.3f, 0.9f, 1.0f, 1.0f },
-		"[Debug] ModelViewer"
+		{ SCREEN_WIDTH / 5 * 3, SCREEN_HEIGHT / 4 * 3 },				//位置
+		30.0f,															//文字サイズ
+		0.0f,															//回転（度）
+		{ 0.7f, 0.7f, 0.7f, 1.0f },										//通常色
+		{ 1.0f, 0.8f, 0.2f, 1.0f },										//ホバー色
+		"[Debug] ModelViewer"											//テキスト
 	);
 
 	// ライティング確認シーンへのClickFont
 	g_pLightingViewerClickFont = new ClickFont(
-		{ 0.0f,30.0f },
-		22.0f,
-		0.0f,
-		{ 0.7f, 0.7f, 0.7f, 1.0f },
-		{ 1.0f, 0.8f, 0.2f, 1.0f },
-		"[Debug] Lighting"
+		{ SCREEN_WIDTH / 5 * 4, SCREEN_HEIGHT / 4 * 3 },				//位置
+		30.0f,															//文字サイズ
+		0.0f,															//回転（度）
+		{ 0.7f, 0.7f, 0.7f, 1.0f },										//通常色
+		{ 1.0f, 0.8f, 0.2f, 1.0f },										//ホバー色
+		"[Debug] Lighting & Movie"										//テキスト
 	);
 
 	UnLockMouse();//マウスロック

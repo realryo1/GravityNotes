@@ -4,6 +4,8 @@
 #include <string>
 #include <fstream>
 #include <stdexcept>
+#include <algorithm>
+#include <cctype>
 #include "framework/nlohmann/json.hpp"
 
 enum class ScoreType
@@ -22,21 +24,29 @@ enum class ScoreWall
 	Right
 };
 
+inline std::string NormalizeScoreToken(std::string value)
+{
+	std::transform(value.begin(), value.end(), value.begin(), [](unsigned char c) { return static_cast<char>(std::tolower(c)); });
+	return value;
+}
+
 inline ScoreType ParseScoreType(const std::string& value)
 {
-	if (value == "enemy") return ScoreType::Enemy;
-	if (value == "obstacle") return ScoreType::Obstacle;
-	if (value == "gravity") return ScoreType::Gravity;
-	if (value == "jump") return ScoreType::Jump;
+	const std::string token = NormalizeScoreToken(value);
+	if (token == "enemy") return ScoreType::Enemy;
+	if (token == "obstacle") return ScoreType::Obstacle;
+	if (token == "gravity") return ScoreType::Gravity;
+	if (token == "jump") return ScoreType::Jump;
 	throw std::runtime_error("Invalid score type: " + value);
 }
 
 inline ScoreWall ParseScoreWall(const std::string& value)
 {
-	if (value == "up") return ScoreWall::Up;
-	if (value == "down") return ScoreWall::Down;
-	if (value == "left") return ScoreWall::Left;
-	if (value == "right") return ScoreWall::Right;
+	const std::string token = NormalizeScoreToken(value);
+	if (token == "up") return ScoreWall::Up;
+	if (token == "down") return ScoreWall::Down;
+	if (token == "left") return ScoreWall::Left;
+	if (token == "right") return ScoreWall::Right;
 	throw std::runtime_error("Invalid score wall: " + value);
 }
 

@@ -38,15 +38,15 @@ void DebugLightingScene_Initialize(void)
 
 	g_pMainLight = new PointLight(
 		TRUE,
-		XMFLOAT4(0.0f, 5.0f, -5.0f, 1.0f),
-		XMFLOAT4(0.0f, -1.0f, 0.5f, 0.0f),
-		XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f),
+		{ 0.0f, 5.0f, -5.0f, 1.0f },
+		{ 0.0f, -1.0f, 0.5f, 0.0f },
+		{ 1.0f, 1.0f, 1.0f, 1.0f },
 		20.0f,
 		1.0f
 	);
 
 	g_pMainLight->Apply(g_ambientLight);
-	
+
 	DebugCamera_Initialize();
 	if (GetCamera())
 	{
@@ -55,8 +55,8 @@ void DebugLightingScene_Initialize(void)
 	}
 
 	g_pMovie = new Movie(
-		{ SCREEN_WIDTH / 2,SCREEN_HEIGHT / 2 },
-		1000.0f,
+		{ 100.0f ,100.0f },
+		200.0f,
 		0.0f,
 		{ 1.0f,1.0f,1.0f, 1.0f },
 		BLENDSTATE_NONE,

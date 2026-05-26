@@ -48,7 +48,7 @@ ClickFont::ClickFont(XMFLOAT2 pos, float fontSize, float rotation,
 	: FontRenderer(pos, fontSize, rotation, normalColor, text)
 	, m_NormalColor(normalColor)
 	, m_HoverColor(hoverColor)
-	, m_HitSize({ (std::max)(fontSize * 2.0f, fontSize * 0.7f * CountUtf8CodePoints(text)), fontSize * 1.5f })
+	, m_HitSize({ fontSize * 0.5f * CountUtf8CodePoints(text), fontSize * 1.5f })
 	, m_IsHover(false)
 	, m_WasLeftDown(false)
 	, m_IsClick(false)
