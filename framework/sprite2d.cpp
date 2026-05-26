@@ -4,6 +4,7 @@
 #include "define.h"
 #include "model.h"
 #include "shadermanager.h"
+#include "mouse.h"
 #include <cmath>
 using namespace DirectX;
 
@@ -72,6 +73,51 @@ void Sprite_BeginDraw2D()
 void Sprite_EndDraw2D()
 {
 	g_b2DBegun = false;
+}
+
+bool ClickSprite2D::IsClick()
+{
+	Mouse_State ms{};
+	Mouse_GetState(&ms);
+
+	const float clientW = Direct3D_GetClientWidth();
+	const float clientH = Direct3D_GetClientHeight();
+	if (clientW <= 0.0f || clientH <= 0.0f) {
+		m_WasLeftDown = ms.leftButton;
+		return false;
+	}
+
+	const float targetAspect = SCREEN_WIDTH / SCREEN_HEIGHT;
+	const float windowAspect = clientW / clientH;
+
+	float vpX, vpY, vpW, vpH;
+	if (windowAspect > targetAspect)
+	{
+		vpH = clientH;
+		vpW = clientH * targetAspect;
+		vpX = (clientW - vpW) * 0.5f;
+		vpY = 0.0f;
+	}
+	else
+	{
+		vpW = clientW;
+		vpH = clientW / targetAspect;
+		vpX = 0.0f;
+		vpY = (clientH - vpH) * 0.5f;
+	}
+
+	const float logicalX = (ms.x - vpX) / vpW * SCREEN_WIDTH;
+	const float logicalY = (ms.y - vpY) / vpH * SCREEN_HEIGHT;
+
+	const bool inArea =
+		(logicalX >= m_Position.x - m_Scale.x && logicalX <= m_Position.x + m_Scale.x) &&
+		(logicalY >= m_Position.y - m_Scale.y && logicalY <= m_Position.y + m_Scale.y);
+
+	const bool leftDown = ms.leftButton;
+	const bool pressedThisFrame = (leftDown && !m_WasLeftDown);
+	m_WasLeftDown = leftDown;
+
+	return pressedThisFrame && inArea;
 }
 
 //----------------------------

@@ -230,6 +230,5 @@
     <None Include="markdown\direct3d_viewport_resize_spec.md">
       <Filter>マークダウン</Filter>
     </None>
-    <None Include="asset\score\debugscore.json" />
   </ItemGroup>
 </Project>

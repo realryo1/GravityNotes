@@ -77,6 +77,19 @@ public:
 	}
 };
 
+class ClickSprite2D : public Sprite2D
+{
+private:
+	bool m_WasLeftDown;
+public:
+	ClickSprite2D(const XMFLOAT2& pos, const XMFLOAT2& size, float rotation, const XMFLOAT4& color, BLENDSTATE bstate, const wchar_t* texturePath)
+		: Sprite2D(pos, size, rotation, color, bstate, texturePath), m_WasLeftDown(false)
+	{
+	}
+
+	bool IsClick();
+};
+
 // SplitSprite クラス 分割テクスチャ用
 class SplitSprite : public Transform2D
 {
