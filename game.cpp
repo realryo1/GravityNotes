@@ -4,7 +4,6 @@
 #include <cmath>
 #include <DirectXMath.h>
 #include "renderer.h"
-
 #include "debug_ostream.h"
 #include "game.h"
 #include "texture.h"
