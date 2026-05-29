@@ -17,6 +17,15 @@ cbuffer ProjectionBuffer : register(b2)
     matrix Projection;
 }
 
+cbuffer MaterialBuffer : register(b3)
+{
+    float4 MaterialAmbient;
+    float4 MaterialDiffuse;
+    float4 MaterialSpecular;
+    float4 MaterialEmission;
+    float MaterialShininess;
+    float3 MaterialPadding;
+}
 
 //頂点構造体 頂点シェーダーが頂点バッファの情報を受け取るための構造体
 struct VS_IN

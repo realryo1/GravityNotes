@@ -17,9 +17,10 @@ void main(in VS_IN In, out PS_IN Out)
     float light = -dot(Light.Direction.xyz, worldNormal.xyz);
     light = saturate(light);
 
-    // 出力カラー計算 (Diffuseにライト乗算)
-    Out.Diffuse.rgb = light * In.Diffuse.rgb;
-    Out.Diffuse.a = In.Diffuse.a;
+    // 出力カラー計算 (頂点色×マテリアル色にライト乗算)
+    float4 baseDiffuse = In.Diffuse * MaterialDiffuse;
+    Out.Diffuse.rgb = light * baseDiffuse.rgb;
+    Out.Diffuse.a = baseDiffuse.a;
 
     Out.Normal = worldNormal;
     Out.TexCoord = In.TexCoord;

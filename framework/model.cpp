@@ -81,7 +81,13 @@ void RenderNode(MODEL* model, aiNode* node, XMMATRIX parentTransform, const XMFL
 			}
 		}
 		
-		(void)finalColor;
+		MATERIAL material = {};
+		material.Diffuse = finalColor;
+		material.Ambient = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+		material.Specular = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+		material.Emission = XMFLOAT4(0.0f, 0.0f, 0.0f, 0.0f);
+		material.Shininess = 50.0f;
+		SetMaterial(material);
 
 		// ワールド行列の設定（ノード変換 + モデルワールド変換を組み合わせ）
 		// RenderNode では親のModelDrawでWVPが設定されているが、ノードごとの変形を考慮
@@ -170,7 +176,13 @@ void RenderNodeAnimation(MODEL* model, aiNode* node, XMMATRIX parentTransform, c
 			}
 		}
 		
-		(void)finalColor;
+		MATERIAL material = {};
+		material.Diffuse = finalColor;
+		material.Ambient = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+		material.Specular = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+		material.Emission = XMFLOAT4(0.0f, 0.0f, 0.0f, 0.0f);
+		material.Shininess = 50.0f;
+		SetMaterial(material);
 
 		// テクスチャをシェーダーに設定
 		ID3D11ShaderResourceView* textureToSet = model->MeshMaterials[meshIndex].textureView;
@@ -431,8 +443,20 @@ MODEL* ModelLoad(const char* FileName)
 					vertex[v].texCoord = XMFLOAT2(0.5f, 0.5f);
 				}
 				
-				vertex[v].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-				
+				if (mesh->HasVertexColors(0))
+				{
+					vertex[v].color = XMFLOAT4(
+						mesh->mColors[0][v].r,
+						mesh->mColors[0][v].g,
+						mesh->mColors[0][v].b,
+						mesh->mColors[0][v].a
+					);
+				}
+				else
+				{
+					vertex[v].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+				}
+
 				// 法線が存在するかチェック
 				if (mesh->HasNormals())
 				{
@@ -488,7 +512,19 @@ MODEL* ModelLoad(const char* FileName)
 				else
 					skinVertex[v].texCoord = XMFLOAT2(0.5f, 0.5f);
 
-				skinVertex[v].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+				if (mesh->HasVertexColors(0))
+				{
+					skinVertex[v].color = XMFLOAT4(
+						mesh->mColors[0][v].r,
+						mesh->mColors[0][v].g,
+						mesh->mColors[0][v].b,
+						mesh->mColors[0][v].a
+					);
+				}
+				else
+				{
+					skinVertex[v].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+				}
 
 				if (mesh->HasNormals())
 					skinVertex[v].normal = XMFLOAT3(mesh->mNormals[v].x, mesh->mNormals[v].y, mesh->mNormals[v].z);
@@ -928,7 +964,13 @@ void ModelAnimationDraw(MODEL* model, XMFLOAT3 pos, XMFLOAT3 rot, XMFLOAT3 scale
 				meshFinalColor = finalColor;
 			}
 		}
-		(void)meshFinalColor;
+		MATERIAL material = {};
+		material.Diffuse = meshFinalColor;
+		material.Ambient = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+		material.Specular = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+		material.Emission = XMFLOAT4(0.0f, 0.0f, 0.0f, 0.0f);
+		material.Shininess = 50.0f;
+		SetMaterial(material);
 
 		ID3D11ShaderResourceView* pSRV = model->MeshMaterials[m].textureView;
 		GetDeviceContext()->PSSetShaderResources(0, 1, &pSRV);

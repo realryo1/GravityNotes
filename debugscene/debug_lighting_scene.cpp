@@ -90,6 +90,7 @@ void DebugLightingScene_Draw(void)
 	g_pKirbyModel->Draw();
 
 	SetDepthEnable(false);
+
 	g_pMovie->Draw();
 
 }

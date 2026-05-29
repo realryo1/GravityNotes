@@ -13,7 +13,7 @@ void main(in VS_IN In, out PS_IN Out)
     float4 worldNormal = mul(In.Normal, World);
     Out.Normal = worldNormal;
 
-    Out.Diffuse = In.Diffuse;
+    Out.Diffuse = In.Diffuse * MaterialDiffuse;	//モデルそのもののMaterialカラーを乗算（Mayaで言うハイパーシェード）
     Out.TexCoord = In.TexCoord;
     Out.WorldPosition = mul(In.Position, World);
 }
