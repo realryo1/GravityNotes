@@ -227,7 +227,7 @@ void StageSelect_Update(void)
 	if (g_pMainVinyl != nullptr) {
 		g_pMainVinyl->SetRotation(g_VinylRotation);
 	//③処理
-	g_pChangeSceneText->Update();
+	/*g_pChangeSceneText->Update();
 
 	if (Keyboard_IsKeyDownTrigger(KK_LEFT))
 	{
@@ -237,14 +237,14 @@ void StageSelect_Update(void)
 	if (Keyboard_IsKeyDownTrigger(KK_RIGHT))
 	{
 		ChangeSelectedScore(1);
-	}
+	}*/
 
 	//ClickFontがクリックされた
 	//if (g_pChangeSceneText->IsClick())
 	//{
 	//	SetPlayJson(GetSelectedJsonName());
 	//	SetSceneFade(SCENE_GAME);
-	//}
+	}
 }
 
 // StageSelectシーンの描画を行う
