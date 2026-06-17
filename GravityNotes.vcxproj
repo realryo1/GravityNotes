@@ -193,6 +193,8 @@
     <ClCompile Include="framework\MultiLineClickFont.cpp" />
     <ClCompile Include="framework\MultiLineFontRenderer.cpp" />
     <ClCompile Include="framework\movie.cpp" />
+    <ClCompile Include="framework\MultiLineClickFont.cpp" />
+    <ClCompile Include="framework\MultiLineFontRenderer.cpp" />
     <ClCompile Include="framework\sound.cpp" />
     <ClCompile Include="framework\sprite2d.cpp" />
     <ClCompile Include="framework\texture.cpp" />
@@ -253,6 +255,8 @@
     <ClInclude Include="framework\MultiLineClickFont.h" />
     <ClInclude Include="framework\MultiLineFontRenderer.h" />
     <ClInclude Include="framework\movie.h" />
+    <ClInclude Include="framework\MultiLineClickFont.h" />
+    <ClInclude Include="framework\MultiLineFontRenderer.h" />
     <ClInclude Include="framework\sound.h" />
     <ClInclude Include="framework\sprite2d.h" />
     <ClInclude Include="framework\sprite3d.h" />
