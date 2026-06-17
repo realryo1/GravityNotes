@@ -242,12 +242,16 @@ void StageSelect_Initialize(void)
 		<< " Count=" << g_ScoreSummaries.size()
 		<< std::endl;
 
-	g_SelectedScoreIndex = 0;
-	RefreshSelectedScoreText();
+	
 
 	// Tải toàn bộ danh sách các file JSON lên hệ thống
 	g_ScoreSummaries = LoadScoreSummaries();
 	g_SelectedStage = 0;
+
+	// Tự động tìm và kích hoạt bản BGM đầu tiên của đĩa 0
+	RefreshSelectedScoreText();
+
+	UpdateBgmFromSelection();
 
 	// Thiết lập lại các thông số trạng thái cơ học ban đầu ổn định
 	g_CurrentState = STATE_PLAYING;
@@ -293,6 +297,9 @@ void StageSelect_Update(void)
 		// Kích hoạt chuỗi hành động nhấc kim nếu có tương tác đổi Stage đĩa
 		if (isInputPressed) {
 			g_CurrentState = STATE_LIFTING_ARM;
+			if (g_pCurrentBgmData != nullptr) {
+				StopSound(g_pCurrentBgmData);
+			}
 		}
 	}
 
