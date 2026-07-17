@@ -246,6 +246,25 @@ void Game_Update(void)
 		bool isFinished = g_pNoteManager->IsFinished();
 		if (isDead || isFinished)
 		{
+			// クリア時：Player→NoteManager の更新順のため、最終ノーツ（特に虹の Complete）の
+			// Pending 判定は同フレームの Player では未処理のまま残る。このまま FINISHED に入ると
+			// 次フレームで Player がキューを破棄し、コンボ加算されない。終了前に反映する。
+			if (isFinished && !isDead)
+			{
+				while (g_pNoteManager->HasPendingJudge())
+					g_pStatusManager->OnJudge(g_pNoteManager->PopPendingJudge());
+				while (g_pNoteManager->HasPendingOrbEvent())
+				{
+					ORB_EVENT ev = g_pNoteManager->PopPendingOrbEvent();
+					if (ev == ORB_EVENT_HIT)
+						g_pStatusManager->OnOrbHit();
+					else
+						g_pStatusManager->OnOrbMiss();
+				}
+				if (g_pStatusManager->HasNewJudge())
+					g_pGameUI->NotifyJudge(g_pStatusManager->ConsumeJudge());
+			}
+
 			g_GameState = GameState::FINISHED_WAIT;
 			g_FinishTimer = 0.0f;
 

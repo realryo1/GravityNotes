@@ -496,7 +496,8 @@ void Player::Update()
 	}
 	else
 	{
-		// 非プレイ中（クリア・ゲームオーバー）は未処理の判定イベントキューをただ空にする（破棄する）
+		// 非プレイ中：クリア時の最終判定は Game_Update 側で FINISHED 遷移前に反映済み。
+		// ここに残っている分はゲームオーバー等で捨ててよいキューだけなので破棄する。
 		while (m_pNoteManager->HasPendingJudge())
 			m_pNoteManager->PopPendingJudge();
 		while (m_pNoteManager->HasPendingOrbEvent())
