@@ -26,7 +26,6 @@ bool cameraIndex;
 void GameCamera::Init() {
 	s_Instance = new GameCamera();
 	Camera_Initialize();
-	LockMouse();
 
 	// 初期面（FLOOR）の目標位置・角度を取得して即座に適用
 	auto& p = D_PARAMS;
@@ -53,7 +52,7 @@ void GameCamera::Init() {
 }
 
 void GameCamera::Update(Player* player) {
-	if (Keyboard_IsKeyDownTrigger(KK_D4))cameraIndex= !cameraIndex;
+	//if (Keyboard_IsKeyDownTrigger(KK_D4))cameraIndex= !cameraIndex;
 
 	if (!cameraIndex)
 	{

@@ -239,20 +239,6 @@ void Game_Update(void)
 		}*/
 	}
 
-	//マウスカーソルを表示/非表示切り替え(デバッグ用)
-	if (Keyboard_IsKeyDownTrigger(KK_U))
-	{
-		g_IsMouseCursorVisible = !g_IsMouseCursorVisible;
-		if (g_IsMouseCursorVisible)
-		{
-			UnLockMouse();
-		}
-		else
-		{
-			LockMouse();
-		}
-	}
-
 	// 状態更新
 	if (g_GameState == GameState::PLAYING)
 	{

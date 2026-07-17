@@ -24,7 +24,6 @@ static float g_DebugCameraPitch = 0.0f;
 void DebugCamera_Initialize(void)
 {
 	Camera_Initialize();
-	LockMouse();
 	g_DebugCameraPos = { 0.0f, 2.0f, 0.0f };
 	g_DebugCameraYaw = 0.0f;
 	g_DebugCameraPitch = 0.0f;
