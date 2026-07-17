@@ -2,7 +2,7 @@
   "musicname": "初音天地開闢神話",
   "musicauthor": "作詞/作曲/編曲:cosMo@暴走P\nジャケット:ぼかほが",
   "scoreauthor": "R.T",
-  "difficulty": 3.9,
+  "difficulty": 3.9000000953674316,
   "thumbnail": "kaibyaku.png",
   "bpm": 240.0,
   "music": "kaibyaku.wav",
@@ -69,12 +69,6 @@
       "lane": 1
     },
     {
-      "beat": 55.0,
-      "type": "Barrier",
-      "wall": "Up",
-      "lane": 0
-    },
-    {
       "beat": 56.0,
       "type": "Enemy",
       "wall": "Left",
@@ -101,12 +95,6 @@
     {
       "beat": 59.0,
       "type": "Barrier",
-      "wall": "Up",
-      "lane": 2
-    },
-    {
-      "beat": 59.0,
-      "type": "Barrier",
       "wall": "Left",
       "lane": 0
     },
@@ -121,12 +109,6 @@
       "type": "Barrier",
       "wall": "Left",
       "lane": 2
-    },
-    {
-      "beat": 59.0,
-      "type": "Barrier",
-      "wall": "Down",
-      "lane": 0
     },
     {
       "beat": 59.0,
@@ -186,12 +168,6 @@
       "beat": 63.0,
       "type": "Barrier",
       "wall": "Up",
-      "lane": 0
-    },
-    {
-      "beat": 63.0,
-      "type": "Barrier",
-      "wall": "Left",
       "lane": 0
     },
     {
@@ -386,14 +362,6 @@
       "wall": "Down",
       "lane": 1,
       "endBeat": 34.0,
-      "endLane": 1
-    },
-    {
-      "beat": 64.0,
-      "type": "Hold",
-      "wall": "Down",
-      "lane": 1,
-      "endBeat": 67.0,
       "endLane": 1
     },
     {
@@ -1881,6 +1849,144 @@
       "type": "Barrier",
       "wall": "Right",
       "lane": 0
+    },
+    {
+      "beat": 55.0,
+      "type": "Barrier",
+      "wall": "Right",
+      "lane": 0
+    },
+    {
+      "beat": 55.0,
+      "type": "Barrier",
+      "wall": "Right",
+      "lane": 1
+    },
+    {
+      "beat": 55.0,
+      "type": "Barrier",
+      "wall": "Right",
+      "lane": 2
+    },
+    {
+      "beat": 59.0,
+      "type": "Barrier",
+      "wall": "Up",
+      "lane": 0
+    },
+    {
+      "beat": 55.0,
+      "type": "Barrier",
+      "wall": "Up",
+      "lane": 2
+    },
+    {
+      "beat": 59.0,
+      "type": "Barrier",
+      "wall": "Down",
+      "lane": 0
+    },
+    {
+      "beat": 64.0,
+      "type": "Enemy",
+      "wall": "Down",
+      "lane": 1
+    },
+    {
+      "beat": 65.0,
+      "type": "Enemy",
+      "wall": "Down",
+      "lane": 1
+    },
+    {
+      "beat": 66.0,
+      "type": "Enemy",
+      "wall": "Down",
+      "lane": 1
+    },
+    {
+      "beat": 67.0,
+      "type": "Enemy",
+      "wall": "Down",
+      "lane": 1
+    },
+    {
+      "beat": 38.0,
+      "type": "Enemy",
+      "wall": "Down",
+      "lane": 1
+    },
+    {
+      "beat": 42.0,
+      "type": "Enemy",
+      "wall": "Down",
+      "lane": 1
+    },
+    {
+      "beat": 353.0,
+      "type": "Enemy",
+      "wall": "Up",
+      "lane": 1
+    },
+    {
+      "beat": 354.0,
+      "type": "Enemy",
+      "wall": "Up",
+      "lane": 1
+    },
+    {
+      "beat": 355.0,
+      "type": "Enemy",
+      "wall": "Up",
+      "lane": 1
+    },
+    {
+      "beat": 165.5,
+      "type": "Orb",
+      "wall": "Left",
+      "lane": 1
+    },
+    {
+      "beat": 167.5,
+      "type": "Orb",
+      "wall": "Up",
+      "lane": 1
+    },
+    {
+      "beat": 169.5,
+      "type": "Orb",
+      "wall": "Left",
+      "lane": 1
+    },
+    {
+      "beat": 171.5,
+      "type": "Orb",
+      "wall": "Down",
+      "lane": 1
+    },
+    {
+      "beat": 173.5,
+      "type": "Orb",
+      "wall": "Right",
+      "lane": 1
+    },
+    {
+      "beat": 175.5,
+      "type": "Orb",
+      "wall": "Down",
+      "lane": 1
+    },
+    {
+      "beat": 177.5,
+      "type": "Orb",
+      "wall": "Left",
+      "lane": 1
+    },
+    {
+      "beat": 179.5,
+      "type": "Orb",
+      "wall": "Up",
+      "lane": 1
     }
   ]
 }
