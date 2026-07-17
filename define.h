@@ -36,8 +36,8 @@
 
 
 //=== Sound 関連定数 ===
-#define SOUND_BGM_VOLUME (0.2f)
-#define SOUND_SE_VOLUME  (0.7f)
+#define SOUND_BGM_VOLUME (0.3f)
+#define SOUND_SE_VOLUME  (0.4f)
 
 //=== Camera 関連定数 ===
 #define PITCH_LIMIT_LOOK_UP    (25.0f)   // 上を見る限界（カメラが下がる限界）: 床埋まり防止
