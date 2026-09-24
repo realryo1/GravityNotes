@@ -79,7 +79,7 @@ void Player::Init(NoteManager* nm, StatusManager* sm)
 		UpdateAnimation(dt);
 	}
 
-	m_pSwordSe = LoadMP3("asset/sound/se/sword.mp3");
+	m_pSwordSe = LoadMP3("asset/sound/se/sword.wav");
 	m_pEnemyHitSe = LoadMP3("asset/sound/se/enemyHit.wav");
 	m_pKaihiSe = LoadMP3("asset/sound/se/kaihi.wav");
 }

@@ -52,7 +52,7 @@ void Input_Initialize(void)
     Gamepad_Initialize();
     Gamepad_SetLayout(GAMEPAD_LAYOUT_SWITCH_ABXY);
 
-    g_pDecideSe = LoadMP3("asset/sound/se/kettei.mp3");
+    g_pDecideSe = LoadMP3("asset/sound/se/kettei.wav");
 }
 
 void Input_Finalize(void)

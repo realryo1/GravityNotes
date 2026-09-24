@@ -43,7 +43,7 @@ namespace
 	constexpr float kJudgeWindowSec = 0.12f; // 入力判定レンジ（秒）
 	constexpr float kJudgePopupLifetimeSec = 0.55f; // 判定文字の表示時間（秒）
 	constexpr float kJudgePopupRiseSpeed = 36.0f; // 判定文字の上昇速度（ピクセル/秒）
-	constexpr const wchar_t* kHitSePath = L"asset\\sound\\se\\bell.mp3"; // ヒット時SE
+	constexpr const wchar_t* kHitSePath = L"asset\\sound\\se\\bell.wav"; // ヒット時SE
 	constexpr const char* kJudgePopupPreCacheChars = "[]+-0123456789ms"; // 判定文字に使う記号・数字を事前キャッシュ
 
 	// のイベントデータと描画スプライトをまとめた構造体

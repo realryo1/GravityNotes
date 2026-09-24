@@ -167,9 +167,9 @@ void GameUI::Init()
     m_IsHoldingRainbow = false;
 
     // SEロード
-    m_pStageClearSe = LoadMP3("asset/sound/se/StageClear.mp3");
-    m_pGameOverSe   = LoadMP3("asset/sound/se/GameOver.mp3");
-    m_pAllHitSe     = LoadMP3("asset/sound/se/AllHit.mp3");
+    m_pStageClearSe = LoadMP3("asset/sound/se/StageClear.wav");
+    m_pGameOverSe   = LoadMP3("asset/sound/se/GameOver.wav");
+    m_pAllHitSe     = LoadMP3("asset/sound/se/AllHit.wav");
 }
 
 void GameUI::Reset()

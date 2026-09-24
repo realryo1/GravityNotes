@@ -152,7 +152,7 @@ static void UpdateBgmFromSelection()
 		g_pCurrentBgmData = nullptr;
 	}
 
-	// 物理ディレクトリから .mp3 ファイルを RAM にロードして再生
+	// 物理ディレクトリから .wav ファイルを RAM にロードして再生
 	g_pCurrentBgmData = LoadMP3(soundPath);
 	if (g_pCurrentBgmData != nullptr) {
 		PlaySound(g_pCurrentBgmData, true); // ループ再生
@@ -245,7 +245,7 @@ void StageSelect_Initialize(void)
 	g_ScrollTarget = 0.0f;
 	g_MenuRepeatTimer = 0;
 	g_PendingDelta = 0;
-	g_pMenuMoveSe = LoadMP3("asset/sound/se/musicMove.mp3");
+	g_pMenuMoveSe = LoadMP3("asset/sound/se/musicMove.wav");
 
 	g_pResultBG = new Sprite2D(
 		{ SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f },

@@ -321,9 +321,9 @@ void Result_Initialize(void)
 	g_ResultSceneTimer = 0.0f;
 
 	// SEの読み込み
-	g_pSEScoreSubtitle = LoadMP3("asset/sound/se/score_subtitle.mp3");
-	g_pSEScoreUp       = LoadMP3("asset/sound/se/scoreup.mp3");
-	g_pSEHyoukaTyuin   = LoadMP3("asset/sound/se/hyouka_tyui-n.mp3");
+	g_pSEScoreSubtitle = LoadMP3("asset/sound/se/score_subtitle.wav");
+	g_pSEScoreUp       = LoadMP3("asset/sound/se/scoreup.wav");
+	g_pSEHyoukaTyuin   = LoadMP3("asset/sound/se/hyouka_tyui-n.wav");
 
 	// BGMの読み込みと再生
 	if (!g_ScoreSummary.music.empty())
