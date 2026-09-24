@@ -33,6 +33,7 @@
 }
 
 html {
+  font-size: 125%;
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-h);
 }
@@ -159,6 +160,28 @@ strong {
   width: 100%;
 }
 
+.site-nav a.nav-download {
+  color: #1a1410;
+  background: var(--yellow);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.site-nav a.nav-download::after {
+  display: none;
+}
+
+.site-nav a.nav-download:hover,
+.site-nav a.nav-download.active {
+  color: #1a1410;
+  background: #ffe57a;
+}
+
+.download-action {
+  text-align: center;
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -223,8 +246,9 @@ strong {
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 0 0 0 max(4vw, calc((100vw - 1120px) / 2));
-  max-width: 640px;
+  margin-left: max(4vw, calc((100vw - 1120px) / 2));
+  max-width: 40rem;
+  padding-right: 1.5rem;
 }
 
 .hero-eyebrow {
@@ -253,6 +277,7 @@ strong {
   font-size: clamp(1rem, 2.2vw, 1.25rem);
   margin-bottom: 2rem;
   color: var(--text);
+  white-space: nowrap;
 }
 
 .hero-tagline span {
@@ -274,6 +299,54 @@ strong {
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(255, 216, 77, 0.45);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.btn-ghost {
+  display: inline-block;
+  padding: 0.85rem 1.8rem;
+  border: 2px solid var(--yellow);
+  color: var(--yellow);
+  font-weight: 700;
+  border-radius: 999px;
+  transition: transform 0.25s var(--ease), background 0.25s;
+}
+
+.btn-ghost:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 216, 77, 0.12);
+}
+
+.video-frame {
+  position: relative;
+  width: min(960px, 100%);
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #000;
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.download {
+  padding-bottom: 2rem;
+}
+
+.play {
+  padding-top: 2rem;
 }
 
 .scroll-hint {
@@ -373,19 +446,22 @@ strong {
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 2.5rem;
+  margin-top: 2rem;
 }
 
 .pillar {
   background: rgba(36, 50, 56, 0.85);
   border: 1px solid rgba(255, 216, 77, 0.2);
   border-radius: var(--radius);
-  padding: 1.5rem 1.75rem;
+  padding: 1.25rem 1.5rem 1.4rem;
   text-align: center;
-  min-width: 160px;
-  flex: 1 1 160px;
-  max-width: 220px;
   box-shadow: var(--shadow);
+}
+
+.shot-card .pillar {
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: none;
 }
 
 .pillar-num {
@@ -418,33 +494,46 @@ strong {
 .concept-lead {
   text-align: center;
   font-size: clamp(1.05rem, 2vw, 1.25rem);
-  max-width: 720px;
-  margin: 0 auto 3rem;
+  max-width: 52rem;
+  margin: 2.5rem auto 0;
   line-height: 1.9;
+}
+
+.lead-line {
+  white-space: nowrap;
 }
 
 .concept-shots {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
+  width: min(1440px, 96vw);
+  margin-inline: auto;
 }
 
-.shot {
-  position: relative;
+.shot-card {
+  display: flex;
+  flex-direction: column;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
   background: var(--bg-card);
 }
 
-.shot img:first-child {
+.shot {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.shot > img {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   transition: transform 0.5s var(--ease);
 }
 
-.shot:hover img:first-child {
+.shot:hover > img {
   transform: scale(1.04);
 }
 
@@ -482,6 +571,18 @@ strong {
 /* System */
 .system {
   background: var(--bg);
+  overflow: hidden;
+}
+
+.section-bg.flow {
+  background-size: 140% auto;
+  background-position: 0% center;
+  animation: bgFlow 36s ease-in-out infinite alternate;
+}
+
+@keyframes bgFlow {
+  from { background-position: 0% center; }
+  to { background-position: 100% center; }
 }
 
 .system-grid {
@@ -893,9 +994,19 @@ strong {
     pointer-events: auto;
   }
 
+  .site-nav a.nav-download {
+    text-align: center;
+  }
+
   .hero-content {
+    margin-left: 0;
     padding: 5rem 6vw 4rem;
     max-width: 100%;
+  }
+
+  .hero-tagline,
+  .lead-line {
+    white-space: normal;
   }
 
   .koda-card {
@@ -922,7 +1033,8 @@ strong {
     transition: none;
   }
   .scroll-line,
-  .particle {
+  .particle,
+  .section-bg.flow {
     animation: none !important;
   }
 }

@@ -21,6 +21,8 @@
       </button>
       <nav class="site-nav" id="siteNav">
         <a href="#concept">概要</a>
+        <a href="#download">ダウンロード</a>
+        <a href="#play">動画</a>
         <a href="#system">システム</a>
         <a href="#objects">オブジェクト</a>
         <a href="#controls">操作</a>
@@ -40,7 +42,10 @@
         <h1 class="hero-title">GravityNote</h1>
         <p class="hero-sub">グラビティノーツ</p>
         <p class="hero-tagline">音ゲー <span>&amp;</span> アクション <span>&amp;</span> 重力操作</p>
-        <a class="btn-primary" href="#concept">世界をのぞく</a>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#play">紹介動画を見る</a>
+          <a class="btn-ghost" href="#download">ダウンロード</a>
+        </div>
       </div>
       <div class="scroll-hint" aria-hidden="true">
         <span>SCROLL</span>
@@ -56,33 +61,10 @@
           <p class="section-label">Concept</p>
           <h2>GravityNote — グラビティノーツとは？</h2>
         </header>
+      </div>
 
-        <div class="pillars reveal">
-          <div class="pillar">
-            <span class="pillar-num">01</span>
-            <h3>音ゲー</h3>
-            <p>リズムに合わせて行動する</p>
-          </div>
-          <div class="pillar-amp">&amp;</div>
-          <div class="pillar">
-            <span class="pillar-num">02</span>
-            <h3>アクション</h3>
-            <p>攻撃・回避を繰り出す</p>
-          </div>
-          <div class="pillar-amp">&amp;</div>
-          <div class="pillar">
-            <span class="pillar-num">03</span>
-            <h3>重力操作</h3>
-            <p>壁も天井も戦場に</p>
-          </div>
-        </div>
-
-        <p class="concept-lead reveal">
-          このゲームは<strong>「リズムゲームアクション」</strong>。<br />
-          リズムに合わせて、アクションRPGの<strong>攻撃</strong>や<strong>回避</strong>を繰り出そう！
-        </p>
-
-        <div class="concept-shots reveal">
+      <div class="concept-shots reveal">
+        <article class="shot-card">
           <figure class="shot">
             <img src="assets/ss-attack.jpg" alt="攻撃シーン" loading="lazy" />
             <figcaption>
@@ -90,6 +72,13 @@
               <span>攻撃</span>
             </figcaption>
           </figure>
+          <div class="pillar">
+            <span class="pillar-num">01</span>
+            <h3>音ゲー</h3>
+            <p>リズムに合わせて行動する</p>
+          </div>
+        </article>
+        <article class="shot-card">
           <figure class="shot">
             <img src="assets/ss-evade.jpg" alt="回避シーン" loading="lazy" />
             <figcaption>
@@ -97,19 +86,73 @@
               <span>回避</span>
             </figcaption>
           </figure>
+          <div class="pillar">
+            <span class="pillar-num">02</span>
+            <h3>アクション</h3>
+            <p>攻撃・回避を繰り出す</p>
+          </div>
+        </article>
+        <article class="shot-card">
           <figure class="shot">
-            <img src="assets/ss-gravity.jpg" alt="重力操作シーン" loading="lazy" />
+            <img src="assets/ss-rainbow.jpg" alt="重力操作シーン" loading="lazy" />
             <figcaption>
               <span class="badge-text">重力</span>
               <span>重力操作</span>
             </figcaption>
           </figure>
+          <div class="pillar">
+            <span class="pillar-num">03</span>
+            <h3>重力操作</h3>
+            <p>壁も天井も戦場に</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="container">
+        <p class="concept-lead reveal">
+          このゲームは<strong>「リズムゲームアクション」</strong>。<br />
+          <span class="lead-line">リズムに合わせて、アクションRPGの<strong>攻撃</strong>や<strong>回避</strong>を繰り出そう！</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section class="section download" id="download">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-label">Download</p>
+          <h2>ダウンロード</h2>
+          <p class="section-desc">最新版は GitHub の Releases から入手できます</p>
+        </header>
+        <p class="download-action reveal">
+          <a class="btn-primary" href="https://github.com/realryo1/GravityNotes/releases" target="_blank" rel="noopener noreferrer">最新版をダウンロード</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- PLAY -->
+    <section class="section play" id="play">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-label">Play</p>
+          <h2>紹介動画</h2>
+        </header>
+        <div class="video-frame reveal">
+          <iframe
+            src="https://www.youtube.com/embed/Lf-gyC4-Ztk"
+            title="GravityNote 紹介動画"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
     </section>
 
     <!-- SYSTEM -->
     <section class="section system" id="system">
+      <div class="section-bg flow" style="background-image:url('assets/bg-dungeon.jpg')"></div>
       <div class="container">
         <header class="section-head reveal">
           <p class="section-label">System</p>
@@ -139,7 +182,7 @@
 
           <article class="system-card sys-special reveal">
             <div class="system-media">
-              <img src="assets/ss-wallrun.jpg" alt="レインボーとホールド" loading="lazy" />
+              <img src="assets/ss-rainbow.jpg" alt="レインボーとホールド" loading="lazy" />
             </div>
             <div class="system-body">
               <h3>レインボー＆ホールド</h3>
@@ -325,7 +368,7 @@
         <div class="gallery-grid reveal">
           <figure><img src="assets/ss-attack.jpg" alt="攻撃" loading="lazy" /></figure>
           <figure><img src="assets/ss-evade.jpg" alt="回避" loading="lazy" /></figure>
-          <figure><img src="assets/ss-gravity.jpg" alt="重力操作" loading="lazy" /></figure>
+          <figure><img src="assets/ss-rainbow.jpg" alt="レインボー" loading="lazy" /></figure>
           <figure><img src="assets/ss-hold.jpg" alt="ホールド" loading="lazy" /></figure>
           <figure><img src="assets/ss-wallrun.jpg" alt="ウォールラン" loading="lazy" /></figure>
           <figure><img src="assets/ss-clear.jpg" alt="ステージクリア" loading="lazy" /></figure>
