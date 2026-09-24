@@ -453,7 +453,7 @@ strong {
   background: rgba(36, 50, 56, 0.85);
   border: 1px solid rgba(255, 216, 77, 0.2);
   border-radius: var(--radius);
-  padding: 1.25rem 1.5rem 1.4rem;
+  padding: 1rem;
   text-align: center;
   box-shadow: var(--shadow);
 }
