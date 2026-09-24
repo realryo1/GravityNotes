@@ -1,13 +1,348 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>directx</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GravityNote | グラビティノーツ</title>
+  <meta name="description" content="音ゲー &amp; アクション &amp; 重力操作 — リズムゲームアクション『GravityNote』公式紹介サイト" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="gravity-field" aria-hidden="true"></div>
 
-    <h1 class="title">directx</h1>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="logo" href="#top">GravityNote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <a href="#concept">概要</a>
+        <a href="#system">システム</a>
+        <a href="#objects">オブジェクト</a>
+        <a href="#controls">操作</a>
+        <a href="#kodawari">こだわり</a>
+        <a href="#gallery">ギャラリー</a>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" style="background-image:url('assets/hero-keyvisual.jpg')"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content reveal">
+        <p class="hero-eyebrow">リズムゲームアクション</p>
+        <h1 class="hero-title">GravityNote</h1>
+        <p class="hero-sub">グラビティノーツ</p>
+        <p class="hero-tagline">音ゲー <span>&amp;</span> アクション <span>&amp;</span> 重力操作</p>
+        <a class="btn-primary" href="#concept">世界をのぞく</a>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <span>SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- CONCEPT -->
+    <section class="section concept" id="concept">
+      <div class="section-bg" style="background-image:url('assets/bg-dungeon.jpg')"></div>
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-label">Concept</p>
+          <h2>GravityNote — グラビティノーツとは？</h2>
+        </header>
+
+        <div class="pillars reveal">
+          <div class="pillar">
+            <span class="pillar-num">01</span>
+            <h3>音ゲー</h3>
+            <p>リズムに合わせて行動する</p>
+          </div>
+          <div class="pillar-amp">&amp;</div>
+          <div class="pillar">
+            <span class="pillar-num">02</span>
+            <h3>アクション</h3>
+            <p>攻撃・回避を繰り出す</p>
+          </div>
+          <div class="pillar-amp">&amp;</div>
+          <div class="pillar">
+            <span class="pillar-num">03</span>
+            <h3>重力操作</h3>
+            <p>壁も天井も戦場に</p>
+          </div>
+        </div>
+
+        <p class="concept-lead reveal">
+          このゲームは<strong>「リズムゲームアクション」</strong>。<br />
+          リズムに合わせて、アクションRPGの<strong>攻撃</strong>や<strong>回避</strong>を繰り出そう！
+        </p>
+
+        <div class="concept-shots reveal">
+          <figure class="shot">
+            <img src="assets/ss-attack.jpg" alt="攻撃シーン" loading="lazy" />
+            <figcaption>
+              <img src="assets/ui-hit.png" alt="" class="badge" />
+              <span>攻撃</span>
+            </figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/ss-evade.jpg" alt="回避シーン" loading="lazy" />
+            <figcaption>
+              <img src="assets/ui-just.png" alt="" class="badge" />
+              <span>回避</span>
+            </figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/ss-gravity.jpg" alt="重力操作シーン" loading="lazy" />
+            <figcaption>
+              <span class="badge-text">重力</span>
+              <span>重力操作</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM -->
+    <section class="section system" id="system">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-label">System</p>
+          <h2>新しいゲームシステム</h2>
+        </header>
+
+        <div class="system-grid">
+          <article class="system-card sys-attack reveal">
+            <div class="system-media">
+              <img src="assets/ss-attack.jpg" alt="敵への攻撃" loading="lazy" />
+            </div>
+            <div class="system-body">
+              <h3>攻撃</h3>
+              <p>敵が目の前に来たら攻撃！</p>
+            </div>
+          </article>
+
+          <article class="system-card sys-evade reveal">
+            <div class="system-media">
+              <img src="assets/ss-barrier-jump.jpg" alt="障害物のジャスト回避" loading="lazy" />
+            </div>
+            <div class="system-body">
+              <h3>ジャスト回避</h3>
+              <p>危ない！障害物はジャスト回避だ！</p>
+            </div>
+          </article>
+
+          <article class="system-card sys-special reveal">
+            <div class="system-media">
+              <img src="assets/ss-wallrun.jpg" alt="レインボーとホールド" loading="lazy" />
+            </div>
+            <div class="system-body">
+              <h3>レインボー＆ホールド</h3>
+              <p>虹やホールドで爽快に！</p>
+            </div>
+          </article>
+
+          <article class="system-card sys-clear reveal">
+            <div class="system-media">
+              <img src="assets/ss-clear.jpg" alt="ステージクリア" loading="lazy" />
+            </div>
+            <div class="system-body">
+              <h3>ダンジョンクリア</h3>
+              <p>ダンジョンクリアを目指せ！</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="system-note reveal">
+          判定は <strong>Hit</strong> と <strong>Miss</strong> の2つだけ（Just は Hit と同じ）。<br class="sp" />
+          「アクションRPG」に「音ゲー」を足した、割り切った仕様です。
+        </p>
+      </div>
+    </section>
+
+    <!-- OBJECTS -->
+    <section class="section objects" id="objects">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-label">Objects</p>
+          <h2>ゲームを彩るオブジェクトたち</h2>
+        </header>
+
+        <div class="object-grid">
+          <article class="obj-card obj-blue reveal">
+            <div class="obj-icon"><img src="assets/obj-gargoyle.png" alt="ガーゴイル" loading="lazy" /></div>
+            <h3>ガーゴイル</h3>
+            <p>リズムに合わせて<br />トリガーで攻撃！</p>
+          </article>
+
+          <article class="obj-card obj-green reveal">
+            <div class="obj-icon"><img src="assets/obj-orb.png" alt="オーブ" loading="lazy" /></div>
+            <h3>オーブ</h3>
+            <p>リズムに合わせて当たるだけ！<br />体力を100回復</p>
+          </article>
+
+          <article class="obj-card obj-red reveal">
+            <div class="obj-icon"><img src="assets/obj-barrier.png" alt="バリア" loading="lazy" /></div>
+            <h3>バリア</h3>
+            <p>タイミングよく避けよう！<br />攻撃は無効！</p>
+          </article>
+
+          <article class="obj-card obj-maroon reveal">
+            <div class="obj-icon"><img src="assets/obj-hold.png" alt="ホールド" loading="lazy" /></div>
+            <h3>ホールド</h3>
+            <p>タイミング良く長押し<br />先頭だけ大きいぞ！</p>
+          </article>
+
+          <article class="obj-card obj-gold reveal">
+            <div class="obj-icon"><img src="assets/obj-rainbow.png" alt="レインボー" loading="lazy" /></div>
+            <h3>レインボー</h3>
+            <p>長押しするだけで重力が自動的に変わる<br />重力操作を華やかに！</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTROLS -->
+    <section class="section controls" id="controls">
+      <div class="section-bg dim" style="background-image:url('assets/bg-castle.jpg')"></div>
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-label">Controls</p>
+          <h2>操作説明（コントローラー）</h2>
+        </header>
+
+        <div class="controls-list">
+          <article class="control-row reveal">
+            <div class="control-label">攻撃</div>
+            <div class="control-inputs">
+              <div class="ctrl-icons">
+                <img src="assets/ctrl-lb.png" alt="LB" />
+                <img src="assets/ctrl-rb.png" alt="RB" />
+              </div>
+              <p class="ctrl-name">トリガー</p>
+            </div>
+            <div class="control-visual">
+              <img src="assets/ss-attack.jpg" alt="攻撃のプレイ画面" loading="lazy" />
+            </div>
+          </article>
+
+          <article class="control-row reveal">
+            <div class="control-label">面移動</div>
+            <div class="control-inputs">
+              <div class="ctrl-icons">
+                <img src="assets/ctrl-stick.png" alt="Lスティック" class="stick" />
+                <span class="or">or</span>
+                <img src="assets/ctrl-dpad.png" alt="十字キー" />
+              </div>
+              <p class="ctrl-name">Lスティック or 十字キー</p>
+            </div>
+            <div class="control-visual">
+              <img src="assets/ss-move.jpg" alt="面移動のプレイ画面" loading="lazy" />
+            </div>
+          </article>
+
+          <article class="control-row reveal">
+            <div class="control-label">重力操作</div>
+            <div class="control-inputs">
+              <div class="ctrl-icons">
+                <img src="assets/ctrl-stick.png" alt="Rスティック" class="stick" />
+              </div>
+              <p class="ctrl-name">Rスティック</p>
+            </div>
+            <div class="control-visual">
+              <img src="assets/ss-wallrun.jpg" alt="重力操作のプレイ画面" loading="lazy" />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- KODAWARI -->
+    <section class="section kodawari" id="kodawari">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-label">Highlights</p>
+          <h2>こだわったところ</h2>
+          <p class="section-desc">チーム「大熱血群」が特に力を入れた開発の裏側</p>
+        </header>
+
+        <div class="kodawari-list">
+          <article class="koda-card reveal">
+            <span class="koda-num">⓪</span>
+            <div>
+              <h3>企画の話</h3>
+              <p>全チーム唯一プランナーがいないチーム。コメダ珈琲での雑談やゲームセンター通いから、「障害物はジャスト回避に！」「虹に乗って重力変更」といったアイデアが生まれました。あくまで「アクションRPG」に「音ゲーを足した」方向性を意識し、判定は Hit / Miss の2つだけに割り切っています。</p>
+            </div>
+          </article>
+
+          <article class="koda-card reveal">
+            <span class="koda-num">①</span>
+            <div>
+              <h3>譜面制作の話</h3>
+              <p>譜面エディタは小町が一気に実装。JSONを軸にゲームとエディタを連携させ、同じフォルダ参照・引数で即ゲーム画面・開始小節設定など、小さな利便性がクオリティの差を生みました。</p>
+            </div>
+          </article>
+
+          <article class="koda-card reveal">
+            <span class="koda-num">②</span>
+            <div>
+              <h3>DirectXの話</h3>
+              <p>開発環境は DirectX11。プログラマー9人という構成からUnityではなくDirectXに挑戦。リーダー・鶴岡がフレームワークを担当し、誰もが使いやすい抽象化を追求。ビルドは約20秒で完了します。</p>
+            </div>
+          </article>
+
+          <article class="koda-card reveal">
+            <span class="koda-num">③</span>
+            <div>
+              <h3>シェーダーの話</h3>
+              <p>北川がシェーダー専任。PBR・法線マップ・シャドウマップ・エフェクト・リムライト・ディザ抜きなどをハイテンポで追加し、モチベーションにつながるビジュアルを実現しました。</p>
+            </div>
+          </article>
+
+          <article class="koda-card reveal">
+            <span class="koda-num">④</span>
+            <div>
+              <h3>スケジュール・リソース管理</h3>
+              <p>プランナー不在のため、水谷がガントチャート・仕様書・画面イメージを早期に整備。「プログラムを後回しにする」判断で中期には素材が揃い、タイトル・曲選択・インゲーム・リザルトを分担。用意した素材はほぼ全て活用できました。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery" id="gallery">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-label">Gallery</p>
+          <h2>プレイ画面</h2>
+        </header>
+        <div class="gallery-grid reveal">
+          <figure><img src="assets/ss-attack.jpg" alt="攻撃" loading="lazy" /></figure>
+          <figure><img src="assets/ss-evade.jpg" alt="回避" loading="lazy" /></figure>
+          <figure><img src="assets/ss-gravity.jpg" alt="重力操作" loading="lazy" /></figure>
+          <figure><img src="assets/ss-hold.jpg" alt="ホールド" loading="lazy" /></figure>
+          <figure><img src="assets/ss-wallrun.jpg" alt="ウォールラン" loading="lazy" /></figure>
+          <figure><img src="assets/ss-clear.jpg" alt="ステージクリア" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-title">GravityNote</p>
+      <p class="footer-team">チーム名：🔥大熱血群🔥</p>
+      <p class="footer-copy">音ゲー &amp; アクション &amp; 重力操作</p>
+      <a href="#top" class="back-top">↑ TOP</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
