@@ -1616,42 +1616,6 @@
       "direction": "CW"
     },
     {
-      "beat": 476.0,
-      "type": "Rainbow",
-      "wall": "Right",
-      "lane": 1,
-      "endBeat": 476.5,
-      "endWall": "Down",
-      "direction": "CCW"
-    },
-    {
-      "beat": 477.0,
-      "type": "Rainbow",
-      "wall": "Down",
-      "lane": 1,
-      "endBeat": 477.5,
-      "endWall": "Left",
-      "direction": "CCW"
-    },
-    {
-      "beat": 478.0,
-      "type": "Rainbow",
-      "wall": "Left",
-      "lane": 1,
-      "endBeat": 478.5,
-      "endWall": "Up",
-      "direction": "CCW"
-    },
-    {
-      "beat": 479.0,
-      "type": "Rainbow",
-      "wall": "Up",
-      "lane": 1,
-      "endBeat": 479.5,
-      "endWall": "Left",
-      "direction": "CW"
-    },
-    {
       "beat": 482.0,
       "type": "Enemy",
       "wall": "Left",
@@ -1843,6 +1807,24 @@
       "lane": 1,
       "endBeat": 584.0,
       "endLane": 1
+    },
+    {
+      "beat": 476.0,
+      "type": "Rainbow",
+      "wall": "Right",
+      "lane": 1,
+      "endBeat": 477.0,
+      "endWall": "Down",
+      "direction": "CCW"
+    },
+    {
+      "beat": 478.0,
+      "type": "Rainbow",
+      "wall": "Down",
+      "lane": 1,
+      "endBeat": 479.0,
+      "endWall": "Left",
+      "direction": "CCW"
     }
   ]
 }
